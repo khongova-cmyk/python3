@@ -1,4 +1,16 @@
-age = int(input("Сколько вам лет? "))
+def get_age():
+    while True:
+        try:
+            age = int(input("Введите ваш возраст: "))
+            if age < 0:
+                print("Возраст не может быть отрицательным. Попробуйте снова.")
+                continue
+            return age
+        except ValueError:
+            print("Ошибка! Пожалуйста, введите число для возраста.")
+
+age = get_age()
+
 citlizen = input("Вы гражданин страны? (Да\Нет)").lower().strip()
 disqualified = input("Вы зек? (Да\Нет)").lower().strip()
 
