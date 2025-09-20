@@ -1,27 +1,23 @@
-def get_age():
+def get_number():
     while True:
         try:
-            age = int(input("Введите ваш возраст: "))
-            if age < 0:
-                print("Возраст не может быть отрицательным. Попробуйте снова.")
-                continue
-            return age
+            num = int(input("Введите число от 1 до 5: "))
+            if 1 <= num <= 5:
+                return num
+            else:
+                print("Число должно быть от 1 до 5. Попробуйте снова.")
         except ValueError:
-            print("Ошибка! Пожалуйста, введите число для возраста.")
+            print("Ошибка! Пожалуйста, введите целое число.")
 
-age = get_age()
 
-citlizen = input("Вы гражданин страны? (Да\Нет)").lower().strip()
-disqualified = input("Вы зек? (Да\Нет)").lower().strip()
+number_words = {
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five"
+}
 
-if age >= 18 and citlizen == "да" and disqualified == "нет":
-    print("Вы можете голосовать на выборах!")
-else:
-    print("Вы не можете голосовать на выборах.")
+number = get_number()
 
-    if age < 18:
-        print("- Ваш возраст меньше 18 лет")
-    if citlizen != "да":
-        print("- Вы не являетесь гражданином страны")
-    if disqualified != "нет":
-        print("- Вы дисквалифицированы")
+print(f"Число {number} на английском: {number_words[number]}")
